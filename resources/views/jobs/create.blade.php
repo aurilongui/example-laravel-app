@@ -17,7 +17,7 @@
                         </div>
                     </div>
                     <div class="sm:col-span-4">
-                        <x-form-label for="title">Salary</x-form-label>
+                        <x-form-label for="salary">Salary</x-form-label>
                         <div class="mt-2">
                             <x-form-input type="text" name="salary" id="salary" placeholder="$50,000 Per Year" required />
                             <x-form-error name="salary" />
