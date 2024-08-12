@@ -53,7 +53,6 @@ class JobController extends Controller
 
     public function update(Job $job)
     {
-        //authorize (On hold...)
         request()->validate([
             'title' => ['required', 'min:3'],
             'salary' => ['required']
@@ -70,7 +69,6 @@ class JobController extends Controller
 
     public function destroy(Job $job)
     {
-        //authorize (On hold...)
         $job->delete();
         return redirect('/jobs');
     }
