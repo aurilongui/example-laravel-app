@@ -1,66 +1,83 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Instrucciones para ejecutar el proyecto / Project Setup Instructions
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+## Castellano / English
 
-## About Laravel
+### Requisitos previos / Prerequisites
+Asegúrate de tener instalados los siguientes componentes en tu sistema antes de continuar: / Make sure you have the following components installed on your system before proceeding:
+1. **PHP**  
+   Verifica que PHP esté instalado y configurado en tu sistema. / Verify that PHP is installed and configured on your system.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+2. **Composer**  
+   El gestor de dependencias de PHP. / The dependency manager for PHP.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+3. **Node.js** y **NPM**  
+   Node.js como entorno de ejecución de JavaScript, y NPM como su gestor de paquetes. / Node.js as the JavaScript runtime environment, and NPM as its package manager.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
 
-## Learning Laravel
+### Primeros pasos / First steps
+1. **Clonar el repositorio / Clone the repository**  
+   Clona el proyecto en tu máquina local. / Clone the project to your local machine.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+2. **Abrir una terminal / Open a terminal**  
+   Navega al directorio raíz del proyecto en tu terminal. / Navigate to the root directory of the project in your terminal.
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+3. **Instalar dependencias de Laravel / Install Laravel dependencies**  
+   Ejecuta el siguiente comando para instalar las dependencias de PHP requeridas: / Run the following command to install the required PHP dependencies: 
+   ```bash
+   composer install
+   ```
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+4. **Configurar las variables de entorno / Configure environment variables**  
+   ```bash
+   cp .env.example .env
+   ```
 
-## Laravel Sponsors
+5. **Generar una clave de aplicación / Generate an application key**  
+   Para generar la clave de aplicación e incluirla directamente en la variable de entorno APP_KEY del fichero .env, ejecuta el comando: / To generate the application key and add it directly to the APP_KEY environment variable in the .env file, run the following command:
+   ```bash
+   php artisan key:generate
+   ```
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+6. **Crear las tablas de la base de datos / Create the database tables**  
+   Ejecuta el siguiente comando para ejecutar las migraciones y crear las tablas en la base de datos (Durante este proceso, es posible que te pida confirmar la creación del archivo database.sqlite. Escribe yes para continuar.):  
+   Run the following command to run the migrations and create the database tables (During this process, you may be asked to confirm the creation of the database.sqlite file. Type yes to continue.):
+   ```bash
+   php artisan migrate
+   ```
 
-### Premium Partners
+7. **Instalar dependencias de JavaScript / Install JavaScript dependencies**  
+   Ejecuta el siguiente comando para instalar las dependencias: / Run the following command to install the dependencies:
+   ```bash
+   npm install
+   ```
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+8. **(Opcional) Poblar la base de datos con datos de prueba / (Optional) Seed the database with sample data**  
+   Si deseas incluir datos de prueba, ejecuta el siguiente comando: / If you want to include sample data, run the following command:
+   ```bash
+   php artisan migrate:fresh --seed
+   ```
 
-## Contributing
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+### Ejecutar el proyecto / Run the project
 
-## Code of Conduct
+1. **Iniciar el servidor de desarrollo de Vite / Start the Vite development server**  
+   Este comando compila y sirve los recursos del frontend: / This command compiles and serves the frontend resources:
+   ```bash
+   npm run dev
+   ```
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+1. **Iniciar el servidor de Laravel / Start the Laravel server**  
+   Ejecuta el siguiente comando para levantar el backend de Laravel: / Run the following command to start the Laravel backend:
+   ```bash
+   php artisan serve
+   ```
 
-## Security Vulnerabilities
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+### Acceder a la aplicación / Access the application
+Abre tu navegador y accede a la siguiente URL local para interactuar con el proyecto: / Open your browser and go to the following local URL to interact with the project:  
+http://localhost:8000
 
-## License
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+### Notas adicionales / Additional notes
+- Asegúrate de que los puertos utilizados por Laravel y Vite estén disponibles en tu sistema / Make sure the ports used by Laravel and Vite are available on your system.
+- Si encuentras errores relacionados con dependencias o permisos, revisa la documentación oficial de [Laravel](https://laravel.com/docs/11.x) y [Vite](https://vite.dev/). / If you encounter errors related to dependencies or permissions, check the official documentation of [Laravel](https://laravel.com/docs/11.x) and [Vite](https://vite.dev/).
